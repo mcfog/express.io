@@ -34,7 +34,7 @@ app.io.route('hello-again', function(req) {
 app.listen(7076)
 ```
 
-__Note__: When you forward http requests to io routes, `req.io.respond(data)` will call `res.json(data)` on the actual http request.  This  makes sense because http routes require a response, and the `respond` method is supposed to be a response for the given request.
+__Note__: When you forward http requests to io routes, `req.io.respond(err, data)` will call `res.json([err, data])` on the actual http request.  This  makes sense because http routes require a response, and the `respond` method is supposed to be a response for the given request.
 
 Also, depending on the sophistication needed between a socket request and a web request, you might consider writing your own custom middleware layer and overriding `req.io.route` for your web requests.
 

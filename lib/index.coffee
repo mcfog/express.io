@@ -109,7 +109,7 @@ express.application.io = (options) ->
                         broadcast: @io.broadcast
                         respond: =>
                             args = Array.prototype.slice.call arguments, 0
-                            response.json.apply response, args
+                            response.json.call response, args
                         route: (route) =>
                             @io.route route, ioRequest, trigger: true
                         data: request.body
